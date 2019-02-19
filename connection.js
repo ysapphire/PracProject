@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017/Books', { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect('mongodb+srv://user:root@dbfornode-y0olc.gcp.mongodb.net/test?retryWrites=true', { useNewUrlParser: true }, (err, client) => {
     if (err) throw err;
     console.log('Connected to db');
 

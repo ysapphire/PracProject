@@ -4,22 +4,28 @@ const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
 const {ObjectID} = require('mongodb');
 
-
+//імпортую монгус і схему
 var {mongoose} = require('./models/mongoose');
 var {bookModel} = require('./models/bookSchema');
+
+mongoose.Promise = global.Promise; // це ж для подальшого використання .then() ?
 
 const app = express();
 const port =  process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
     res.send('Home page/auth ');
 });
 
-app.post('/list', (req, res) => {
+app.post('/list', (req, res) => {  //перевіряв як працювати з Postman 
     var book = new bookModel({
-        title: req.body.title
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre,
+        published: req.body.published
     });
     book.save().then((doc) => {
         res.send(doc);

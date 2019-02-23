@@ -17,6 +17,6 @@ const userSchema = new mongoose.Schema({
 
 var userModel = mongoose.model('User', userSchema);
 
-console.log('Feels like everything is OK');
+console.log('Feels like everything is OK in user schema');
 
 module.exports = {userModel};

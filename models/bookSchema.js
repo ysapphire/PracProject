@@ -15,7 +15,7 @@ const bookSchema = new mongoose.Schema({
 
 var bookModel = mongoose.model('Book', bookSchema);
 
-console.log('Feels like everything is OK');
+console.log('Feels like everything is OK in book schema');
 
 module.exports = {bookModel};
 

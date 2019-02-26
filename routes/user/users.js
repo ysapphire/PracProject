@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-var {userModel} = require('../models/userSchema');
+var userModel = require('../../models/userSchema');
 
-router.post('/', (req, res) => {  //перевіряв як працювати з Postman 
+router.post('/', (req, res) => {  
    var user = new userModel({
        name: req.body.name,
         email: req.body.email,

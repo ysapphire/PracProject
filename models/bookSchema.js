@@ -13,10 +13,8 @@ const bookSchema = new mongoose.Schema({
     published: Number
 });
 
-var bookModel = mongoose.model('Book', bookSchema);
+var Book = mongoose.model('book', bookSchema);
 
 console.log('Feels like everything is OK in book schema');
 
-module.exports = {bookModel};
-
-
+module.exports = Book;

@@ -19,4 +19,4 @@ var userModel = mongoose.model('User', userSchema);
 
 console.log('Feels like everything is OK in user schema');
 
-module.exports = {userModel};
+module.exports = userModel;

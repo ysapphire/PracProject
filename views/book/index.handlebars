@@ -1,0 +1,18 @@
+{{#each books}}
+  <div class="card card-body mb-2 align-middle">
+     <img class="card-img-top" src="/views/files/book.png" alt="Card image cap">
+    <h2 class="card-title"> <i>{{title}}</i></h2>
+    <div class="card-body">
+      <h4>Author: {{author}}</h4>
+      <h4>Genre: {{genre}}</h4>
+      <h4>Pubslished - year: {{published}}</h4>
+    </div>
+    <a class="btn btn-dark btn-block mb-2 w-25 p-3" href="/list/{{id}}?_method_PUT">Edit</a>
+    <form method="post" action="/list/{{id}}?_method=DELETE">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" class="btn btn-danger btn-block w-25 p-3" value="Delete">
+    </form>
+  </div>
+{{else}}
+  <p>Nothing here</p>
+{{/each}}

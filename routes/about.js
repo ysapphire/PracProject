@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('About page');
+    res.render('about.handlebars');
 });
 
 module.exports = router; 

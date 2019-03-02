@@ -13,7 +13,7 @@ const bookSchema = new mongoose.Schema({
     published: Number
 });
 
-var Book = mongoose.model('book', bookSchema);
+var Book = mongoose.model('books', bookSchema);
 
 console.log('Feels like everything is OK in book schema');
 

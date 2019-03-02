@@ -3,14 +3,14 @@ const express = require('express'),
     methodOverride = require('method-override'),
     MongoClient = require('mongodb').MongoClient;
     ObjectID = require('mongodb');
-    mongoose = require('mongoose');
-
+    mongoose = require('mongoose'),
+    exphbs  = require('express-handlebars');
+    
 var mongoose = require('./models/mongoose'),
     Book = require('./models/bookSchema'),
     userModel = require('./models/userSchema');
 
 var listRouter = require('./routes/book/read'),
-    readOneRouter = require('./routes/book/readOne'),
     homeRouter = require('./routes/home'),
     aboutRouter = require('./routes/about'),
     addRouter = require('./routes/book/add'),
@@ -26,15 +26,19 @@ mongoose.Promise = global.Promise;
 const app = express();
 const port =  process.env.PORT || 3000;
 
+app.use(methodOverride('_method'));
+app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(methodOverride('_method'));
+
 
 app.use('/', homeRouter);
 app.use('/list', listRouter);
 app.use('/list/add', addRouter);
-app.use('/list/:id', readOneRouter);
-app.use('/list/:id', deleteRouter);
+// app.use('/list/:id', deleteRouter);
 app.use('/list/:id', updateRouter);
 app.use('/users', usersRouter);
 app.use('/users/add', userAddRouter);

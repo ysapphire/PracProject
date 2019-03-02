@@ -3,7 +3,7 @@ const router = express.Router();
 var Book = require('../../models/bookSchema');
 
 router.get('/', (req, res) => {
-    res.send('Welcome to the ADD page');
+    res.render('book/add.handlebars');
 });
 
 router.post('/', (req, res) => { 
@@ -13,8 +13,9 @@ router.post('/', (req, res) => {
         genre: req.body.genre,
         published: req.body.published
     });
-    book.save().then((doc) => {
-        res.send(doc);
+    book.save().then((books) => {
+        res.redirect('/list');
+        //res.send(doc);
     }, (err) => {
         res.status(400).send(err);
     });

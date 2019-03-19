@@ -38,14 +38,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', homeRouter);
 app.use('/list', listRouter);
 app.use('/list/add', addRouter);
-// app.use('/list/:id', deleteRouter);
+app.use('/list/:id', deleteRouter);
 app.use('/list/:id', updateRouter);
 app.use('/users', usersRouter);
 app.use('/users/add', userAddRouter);
 app.use('/users/:id', userDeleteRouter);
 app.use('/users/:id', oneUserRouter);
 app.use('/about', aboutRouter);
-
 
 app.listen(port, (req, res) => {
     console.log('Server is working on port ',  port);

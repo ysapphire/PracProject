@@ -5,7 +5,7 @@ var Book = require('../../models/bookSchema');
 router.get('/', (req, res) => {
     res.render('book/edit.handlebars');
 });
-router.put('/', (req, res) => {
+router.post('/', (req, res) => {
     Book.findOne({
         _id: req.params.id
     })
